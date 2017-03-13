@@ -1,5 +1,5 @@
-<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" > <suite name="Selenium Framework Test Suite" parallel="methods"
-       verbose="1" thread-count="5">
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="Selenium Framework Test Suite" parallel="methods" verbose="1" thread-count="5">
     <listeners>
         <listener class-name="com.seleniumtests.reporter.SeleniumTestsReporter" />
         <listener class-name="com.seleniumtests.core.TestRetryListener" />
@@ -36,6 +36,18 @@
     <!-- For soft assert, use assert APIs from  com.seleniumtests.core.CustomAssertion class-->
     <parameter name="useFirefoxDefaultProfile" value="false"/>
 
+    <!-- For Google Test-->
+
+    <test name = "WebTest - Google Search Test in FF">
+        <parameter name="appURL" value="http://www.google.co.uk/"/>
+        <parameter name="testType" value="Web" />
+        <parameter name="browser" value="*iexplore" />
+        <classes>
+            <class name="com.seleniumtests.tests.GoogleSearchTest" />
+        </classes>
+    </test>
+
+    <!-- Comment below test cases for running only Google Test -->
 
     <test name="WebTest - Test Link Login Test in Chrome">
         <!--testType parameter is optional for web test, since testType defaults to web-->
